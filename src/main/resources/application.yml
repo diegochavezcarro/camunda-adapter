@@ -3,6 +3,16 @@ spring:
     name: camunda-adapter
 #  main:
 #    allow-bean-definition-overriding:true
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: callCamundaTopic
+          content-type: application/json
+          group: camundaAdapterGroup
+      kafka:
+        binder:
+          brokers: localhost
 
 #Setting the logging levels for the service
 logging:
